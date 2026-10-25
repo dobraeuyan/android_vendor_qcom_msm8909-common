@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2012-2014, 2016-2017 The Linux Foundation. All rights reserved.
+     Not a contribution.
+
+     Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<Included>
+    <Decoders>
+        <!-- SimpleOMXComponet based software decoder-->
+        <MediaCodec name="OMX.qti.audio.decoder.flac" type="audio/flac" >
+            <Limit name="concurrent-instances" max="10" />
+        </MediaCodec>
+    <!-- Bloque DOLBY_UDC/DOLBY_AC4 eliminado 20260719: declaraba
+         OMX.dolby.{ac3,eac3,eac3_joc,ac4}.decoder, componentes que NUNCA se
+         registran porque no se envía ninguna lib que los implemente (ni la
+         enviaba el stock: AC3/E-AC3 dan NO_EXTRACTOR también ahí). Se quita
+         junto con el resto de Dolby; blob_fixup lo vuelve a quitar en cada
+         extracción. -->
+    <!--modify by dongkai for Q6005-1141-->
+    </Decoders>
+</Included>
